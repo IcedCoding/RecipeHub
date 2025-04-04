@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% block title %} RecipeHub {% endblock %} 
+
+{% block content %} 
+<main id="main-search">
+
+  <div id="search-box">
+    <form method="POST" action="/search" id="search-nav">
+      <input type="text" name="search_query" value="{{ search_query }}" placeholder="Search for recipes">
+      <input type="submit" value="Search">
+    </form>
+  </div>
+  
+  {% if recipes %}
+  
+  <h1>Results for "{{ search_query }}"</h1>
+  <div class="line"></div>
+
+  <div class="list">
+    {% for recipe in recipes %}
+    <div class="card">
+      <div class="image">
+        <a href="{{ url_for('view_recipe', recipe_id=recipe.id, search_query=search_query) }}">
+          {% if recipe.image %}
+          <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+          {% endif %}
+        </a>
+      </div>
+      
+      <div class="title">
+        <h3>{{ recipe.title }}</h3>
+      </div>
+
+    </div>      
+    {% endfor %}
+  </div>
+  
+  <!-- If no recipes are found -->
+  {% else %}
+    <div id="no-result">
+      <h2>No recipes found.</h2>
+      <p>We cannot find the recipe you were looking for.</p>  
+    </div>
+  {% endif %}
+      
+</main>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block title %} {{ recipe.title }} {% endblock %} 
+
+{% block content %} 
+
+<main>
+
+<div class="recipe">
+  <div class="img">
+    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+  </div>
+  <div class="details">
+    <h1>{{ recipe.title }}</h1>
+    <div class="tabs">
+      <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
+      <label class="label" for="tab-1">Ingredients</label>
+      <div class="panel">
+        <ul>
+          
+          {% for ingredient in recipe.extendedIngredients %}
+            <li>{{ ingredient.original }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <input class="input" name="tabs" type="radio" id="tab-2"/>
+      <label class="label" for="tab-2">Instructions</label>
+      <div class="panel">
+        {% for step in recipe.analyzedInstructions[0].steps %}
+            <div class="step">
+                <span class="step-number">{{ step.number }}.</span>
+                <span class="step-text">{{ step.step }}</span>
+            </div>
+            {% endfor %}
+        <!-- {{ recipe.instructions | safe}} -->
+      </div> 
+  </div>
+</div>
+</div>
+</main>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%} {% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <header>
+    <nav>
+    <div id="left">
+      <a href="/" id="brand">recipehub</a>
+    </div>
+    </div>
+    <div id="right">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </div>
+    </nav>
+  </header>
+
+  
+  {% block content %} 
+  
+  {% endblock %}
+
+</body>
+</html>

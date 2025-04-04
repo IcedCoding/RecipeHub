@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipeHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <!-- {% extends 'base.html' %} 
+{% block title %} RecipeHub {% endblock %}  -->
+
+<!-- {% block content %}  -->
+<div id="home">
+  <div id="wrapper">
+    <div id="name">recipehub</div>
+    <div>
+      <form method="POST" action="/search">
+        <input type="text" name="search_query" placeholder="Search for recipes">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+  </div>
+  <div id="meta">Explore over 380,000 recipes in RecipeHub.</div>
+<!-- {% endblock %} -->
+</body>
+</html>
+

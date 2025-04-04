@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+{% block title %} About {% endblock %} 
+
+{% block content %} 
+<main id="about">
+
+  <div class="sticky-wrapper">
+    <div class="hero">
+      <h1>About RecipeHub</h1>
+      <p>Welcome to RecipeHub, your culinary companion on a journey of taste exploration and cooking creativity. At RecipeHub, we believe that cooking is not just about preparing meals; it's a delightful adventure, an art form, and a shared experience that brings people together.</p>
+      <p>RecipeHub is a project created as part of requirement for our computer classes OLCC03 and OLCPPROG02, designed to inspire and empower home cooks of all skill levels.</p>
+    </div>
+    
+  </div>
+
+  <div class="members"></div>
+
+  </main>
+
+  <script>
+    const members = [
+      {name: 'Ivan Cedrick Militar', role:'Project Leader &#x2022 Program Developer &#x2022 Programmer', avatar: 'https://avatar.iran.liara.run/public/1'},
+      {name: 'Rizelle Ann Dela Cruz', role:'Project Analyst &#x2022 Programmer', avatar: 'https://avatar.iran.liara.run/public/51'},
+      {name: 'Jo Vincent Adamiro', role:'Programmer', avatar: 'https://avatar.iran.liara.run/public/2'},
+      {name: 'Angelo Cruz', role:'Programmer', avatar: 'https://avatar.iran.liara.run/public/3'},
+      {name: 'Ezekiel Arive', role:'Programmer', avatar: 'https://avatar.iran.liara.run/public/4'},
+      {name: 'Hiro Mateo', role:'Programmer', avatar: 'https://avatar.iran.liara.run/public/5'},
+      {name: 'Bascal Niño', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/6'},
+      {name: 'Janet Alviola', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/52'},
+      {name: 'Roselyn Afable', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/53'},
+      {name: 'Michael Ramirez', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/7'},
+      {name: 'Michael Ramirez', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/8'},
+      {name: 'Leon Joseph Geronimo', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/9'},
+      {name: 'Euniss Jestine Jaminola', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/55'},
+      {name: 'Elgino Atig', role:'Researcher', avatar: 'https://avatar.iran.liara.run/public/9'},
+    ]
+
+    let HTML = `<h2>Our Team</h2>`
+    members.forEach( member => {
+      HTML += `
+      <div class="member-card">
+      <img src="${member.avatar}" alt="">
+      <div class="desc">
+        <div class="name">
+          <span class='member-name'>${member.name}</span>
+          <span class="role">${member.role}</span>
+        </div>
+      </div>
+    </div>
+      `
+    })
+
+    document.querySelector('.members').innerHTML = HTML
+    </script>
+{% endblock %}
